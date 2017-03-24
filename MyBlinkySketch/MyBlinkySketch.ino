@@ -35,7 +35,7 @@ const uint8_t brightnessCount = 9;
 uint8_t brightnesSteps[brightnessCount] = {93,70,40,15,5,15,40,70,93};
 uint8_t currentBrightness;
 uint8_t lastBrightness;
-//
+
 // For fading in a new sketch
 long lastTime;
 
