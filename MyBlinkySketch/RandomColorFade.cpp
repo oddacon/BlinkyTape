@@ -48,4 +48,4 @@ if (((Col1 <= 90) && ((Col2 <= 90) && (Col3 <= 90)))) {  //avoid black
   }
   delay(wait_time);
   LEDS.show();
-} 
+}
