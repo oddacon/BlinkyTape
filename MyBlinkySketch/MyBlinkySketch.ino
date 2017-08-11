@@ -4,7 +4,7 @@
 #--------- oddacon@live.com ----------#
 #------------------------------------*/
 // This is my version of Blinkinlab's Blinkytape 'ProductionSketch' 
-// Most of these examples I found and rewrote for BlinkyTape. Enjoy ^_^
+// Most of these examples I found and re-wrote for BlinkyTape. Enjoy! ^_^
 
 #include <EEPROM.h>
 #include <FastLED.h>
@@ -24,7 +24,7 @@
 #include "Scanner.h"
 #include "SerialLoop.h"
 #include "Shimmer.h"
-#include "VerticalRainbowLoop.h"
+#include "RandomColorFade.h"
 #include "xmas.h"
 
 // LED data array
@@ -67,8 +67,8 @@ Pattern* patterns[maxPatternCount];
 // Our patterns
 ColorSwirl OriginalColorSwirl(1,1,1);
 RainbowLoop OriginalRainbowLoop(CRGB(0, 0, 0));
-VerRainbowLoop OriginalVerRainbowLoop(CRGB(0, 0, 0));
 ColorFade OriginalColorFade(CRGB(0, 0, 0));
+RndColFade OriginalRndColFade(CRGB(0, 0, 0));
 ColorPulse Pulse(CRGB(255, 0, 0)); //red
 Scanner scanner(4, CRGB(255,0,0)); //red
 Flicker flicker(CRGB(0,0,0));
@@ -78,7 +78,7 @@ Matrix OriginalMatrix(CRGB(0,255,0)); //green
 RandomColorPop RandomColorPopLoop(CRGB(0,0,0)); 
 Shimmer shimmer(1,1,1);
 RandomMarch RandomMarchLoop(CRGB(0,0,0)); 
-RWBMarch RWBMarchLoop(CRGB(0,0,0)); 
+RWBMarch RWBMarchLoop(CRGB(0,0,0));
 ColorLoop1 xmas(CRGB(0, 0, 0));
 
 
@@ -175,21 +175,21 @@ void setup()
   PCICR  |= (1 << PCIE0);  // Enable interrupt
 
   
-  registerPattern(&OriginalColorSwirl);
-  registerPattern(&OriginalRainbowLoop);
-  registerPattern(&OriginalVerRainbowLoop);
-  registerPattern(&OriginalColorFade);
-  registerPattern(&Pulse);
-  registerPattern(&scanner);
-  registerPattern(&flicker);
-  registerPattern(&flashlight);
-  registerPattern(&EMS);
-  registerPattern(&OriginalMatrix);
-  registerPattern(&RandomColorPopLoop);
-  registerPattern(&shimmer);
-  registerPattern(&RandomMarchLoop);
-  registerPattern(&RWBMarchLoop);
-  registerPattern(&xmas);
+registerPattern(&OriginalColorSwirl);
+registerPattern(&OriginalRainbowLoop);
+registerPattern(&OriginalColorFade);
+registerPattern(&OriginalRndColFade);
+registerPattern(&Pulse);
+registerPattern(&scanner);
+registerPattern(&flicker);
+registerPattern(&flashlight);
+registerPattern(&EMS);
+registerPattern(&OriginalMatrix);
+registerPattern(&RandomColorPopLoop);
+registerPattern(&shimmer);
+registerPattern(&RandomMarchLoop);
+registerPattern(&RWBMarchLoop);
+registerPattern(&xmas);
   
 
   // If the EEPROM hasn't been initialized, do so now
@@ -232,4 +232,3 @@ void loop()
   } 
   LEDS.show();
 }
-
