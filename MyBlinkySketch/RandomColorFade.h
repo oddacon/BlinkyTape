@@ -25,4 +25,4 @@ class RndColFade : public Pattern {
     void draw(CRGB * leds);
 };
 
-#endif
+#endif 
