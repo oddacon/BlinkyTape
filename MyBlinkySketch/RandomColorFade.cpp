@@ -8,7 +8,6 @@ RndColFade::RndColFade(CRGB NewRndColFade) :
   rnd_col_fade(NewRndColFade) {
   }
 
-
 void RndColFade::draw(CRGB* leds)   {  
 
 if ((((Col1 == 0) || (Col1 == 250)) && (((Col2 == 0) || (Col2 == 250)) && ((Col3 == 0) || (Col3 == 250))))) {
@@ -16,7 +15,7 @@ if ((((Col1 == 0) || (Col1 == 250)) && (((Col2 == 0) || (Col2 == 250)) && ((Col3
         C1 = random(1, 3);
         C2 = random(1, 3);
         C3 = random(1, 3);
-    } while ((C1 == 2) && (C2 == 2) && (C3 == 2));
+    } while (((((C1 == 1) && (C2 == 1) && (C3 == 1)) || ((C1 == 2) && (C2 == 2) && (C3 == 2)))));
 }
 if (((C1 == 1) && (Col1 != 0))) {
     Col1 = (Col1 - 10);  
@@ -37,12 +36,7 @@ if (((C2 == 2) && (Col2 != 250))) {
 if (((C3 == 2) && (Col3 != 250))) {
     Col3 = (Col3 + 10);
 }
-
-if (((Col1 <= 90) && ((Col2 <= 90) && (Col3 <= 90)))) {  //avoid black
-   C1 = 2;
-   C2 = 2;
-   C3 = 2;
-}
+  
   for (uint8_t i = 0; i < LED_COUNT; i++) {
    leds[i] = CRGB(Col1, Col2, Col3);
   }
