@@ -13,11 +13,9 @@ class RndColFade : public Pattern {
   int Col1;
   int Col2;
   int Col3;
-
   int C1;
   int C2;
   int C3;
-
 
   public:
     RndColFade(CRGB NewRndColFade);
